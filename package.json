@@ -1,0 +1,20 @@
+{
+  "name": "uk.aston.aston.ambient-common",
+  "version": "0.0.1",
+  "displayName": "Ambient Common",
+  "description": "Package with common Ambient objects and methods",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "keywords": [
+    "ambient"
+  ],
+  "author": {
+    "name": "Harman Uppal",
+    "email": "uppalhrs@aston.ac.uk",
+    "url": "https://www.aston.ac.uk"
+  },
+  "type": "library"
+}
