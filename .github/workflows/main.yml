@@ -18,6 +18,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2
+      
       - name: Fetch Latest DLL
         uses: robinraju/release-downloader@v1.3
         with:
@@ -25,6 +27,18 @@ jobs:
           repository: aston-ambient/ambient-common
           latest: true
           fileName: ambient-common.dll
-          out-file-path: .
-      - name: Commit DLL to repo
-        run: ls -a
+          out-file-path: ./Runtime/Plugins/
+      - name: Update package.json
+        uses: jossef/action-set-json-field@v1
+        with:
+          file: package.json
+          field: version
+          value: ${{ github.event.client_payload.version }}
+      - name: Commit and push changes
+        uses: EndBug/add-and-commit@v8.0.2
+        with:
+          author_name: vNemesis
+          committer_name: vNemesis
+          # The message for the commit
+          message: 'Update to version: ${{ github.event.client_payload.version }}'
+
