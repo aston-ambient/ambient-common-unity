@@ -5,7 +5,7 @@ name: CI
 # Controls when the workflow will run
 on:
   repository_dispatch:
-
+    types: [auto-build]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -19,7 +19,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Fetch Latest DLL
-      - name: release-downloader
         uses: robinraju/release-downloader@v1.3
         with:
           # The source repository path. Expected format {owner}/{repo}
@@ -27,3 +26,5 @@ jobs:
           latest: true
           fileName: ambient-common.dll
           out-file-path: .
+      - name: Commit DLL to repo
+        run: ls -a
