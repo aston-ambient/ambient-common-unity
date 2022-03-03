@@ -41,14 +41,17 @@ jobs:
           committer_name: vNemesis
           # The message for the commit
           message: 'Update to version: ${{ github.event.client_payload.version }}'
-      - name: Create tag
-        uses: actions/github-script@v5
+      - name: Create Release
+        uses: actions/create-release@v1
+        continue-on-error: true
+        id: create_release
         with:
-          script: |
-            github.rest.git.createRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/tags/${{ github.event.client_payload.version }}',
-              sha: context.sha
-            })
+          draft: false
+          prerelease: false
+          release_name: ${{ github.event.client_payload.version }}
+          tag_name: ${{ github.event.client_payload.version }}
+          body_path: 'Update to ambient common version: ${{ github.event.client_payload.version }}'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
 
