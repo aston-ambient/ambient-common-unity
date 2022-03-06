@@ -1,6 +1,6 @@
 {
   "name": "uk.aston.aston.ambient-common",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "displayName": "Ambient Common",
   "description": "Package with common Ambient objects and methods",
   "unity": "2019.1",
