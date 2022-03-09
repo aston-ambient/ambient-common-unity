@@ -50,7 +50,7 @@ jobs:
           prerelease: false
           release_name: ${{ github.event.client_payload.version }}
           tag_name: ${{ github.event.client_payload.version }}
-          body_path: 'Update to ambient common version: ${{ github.event.client_payload.version }}'
+          body: 'Update to ambient common version: ${{ github.event.client_payload.version }}'
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
